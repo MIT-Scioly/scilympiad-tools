@@ -70,16 +70,16 @@ The following steps are needed to set up the grapher and monitor.
 
 1. Create a Google Sheets spreadsheet to plot the results with.
 2. Set up credentials for the Google Sheets API for `edit_sheets.py` to work
-   1. Download 'credentials.json' from [this page](https://developers.google.com/sheets/api/quickstart/python) at 'Enable the Google Sheets API'.
+   1. Download 'credentials.json' from [this page](https://developers.google.com/sheets/api/quickstart/python) at "Enable the Google Sheets API".
    2. Put `credentials.json` into the `scilympiad-grapher` directory.
-   3. If you are running this for the first time on a headless machine, you may need to run this first on a local machine with a GUI and copy and paste the generated `token.pickle` file onto your server. This `token.pickle` can then be copied over to the headless machine to grant access to your Google Sheets spreadsheet.
+   3. If you are running this for the first time on a headless machine, you may need to run `edit_sheets.py` first on a local machine with a GUI in order to generate `token.pickle`. This token can then be moved onto the headless server to grant access to your Google Sheets spreadsheet.
 3. Update the `update_graph.sh` script with the current working directory of this project.
    1. Run `pwd` in your project directory.
    2. Paste this output into the shell script where it says `ABSOLUTE_PATH_TO_PROJECT_DIRECTORY`
 4. Do a dry run with `./update_graph.sh`. You should see an indication on your spreadsheet that you have updated the sheet.
-5. If the above step works, set up a crontab to run the shell script periodically (`crontab -e`). The following crontab sets the script to run every 3 minutes.
+5. If the above step works, set up a cronjob to run the shell script periodically (`crontab -e`). The following crontab sets the script to run every 3 minutes.
 
-    ```cron
+    ```bash
     SHELL=/bin/bash
 
     */3 * * * * /absolute/path/to/update_graph.sh
