@@ -1,0 +1,14 @@
+# Dev Tools
+.DS_Store
+.vscode
+
+# Environment
+.env
+venv
+
+# Generated files
+stats.csv
+logs
+token.pickle
+
+credentials.json
